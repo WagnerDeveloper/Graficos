@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:oxy="clr-namespace:OxyPlot.Maui.Skia;assembly=OxyPlot.Maui.Skia"
+            x:Class="App.MainPage"
+            UnselectedTabColor="Gray"
+            SelectedTabColor="White"
+            BarBackgroundColor="#2D2D2D">
+
+    <ContentPage Title="Acelerômetro"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+        <ScrollView>
+            <VerticalStackLayout Margin="20">
+                <Button 
+                    x:Name="BTNA"
+                    Text="Coletar Informações"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    Clicked="BTNA_Clicked"
+                    BackgroundColor="#90EE90"/>
+                <Label Text="Acelerômetro:" FontSize="Medium" TextColor="White" Margin="20,10,0,10"/>
+                
+                <HorizontalStackLayout Spacing="20"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand">
+                    <Frame BackgroundColor="#90EE90" CornerRadius="10" Padding="10" WidthRequest="100" HeightRequest="50" HorizontalOptions="StartAndExpand">
+                        <Label x:Name="XAccelLabel" Text="X=0" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+
+                    <Frame BackgroundColor="#90EE90" CornerRadius="10" Padding="10" WidthRequest="100" HeightRequest="50" HorizontalOptions="CenterAndExpand">
+                        <Label x:Name="YAccelLabel" Text="Y=0" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+
+                    <Frame BackgroundColor="#90EE90" CornerRadius="10" Padding="10" WidthRequest="100" HeightRequest="50" HorizontalOptions="EndAndExpand">
+                        <Label x:Name="ZAccelLabel" Text="Z=0" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                </HorizontalStackLayout>
+                <Button
+                    Margin="20"
+                    x:Name="BTNO"
+                    Text="Parar Coleta de Dados"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    Clicked="BTNO_Clicked"
+                    BackgroundColor="#EF4444"/>
+                
+                <Frame BackgroundColor="White">
+                    <oxy:PlotView
+                      x:Name="AccelerometerPlotView" 
+                      Model="{Binding _plotmodelA}"
+                      DefaultTrackerTemplate="{x:Null}"
+                      WidthRequest="300" 
+                      HeightRequest="300" 
+                      VerticalOptions="Center" 
+                      HorizontalOptions="Center" />
+                </Frame>
+                
+
+
+            </VerticalStackLayout>
+            </ScrollView>
+    </ContentPage>
+
+    <ContentPage Title="Giroscópio">
+                 
+        <ScrollView>
+            <VerticalStackLayout Margin="20">
+                <Button 
+                    x:Name="BTNG"
+                    Text="Coletar Informações"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    Clicked="BTNG_Clicked"
+                    BackgroundColor="#90EE90"/>
+                <Label Text="Giroscópio:" FontSize="Medium" TextColor="White" Margin="20,10,0,10"/>
+
+                <HorizontalStackLayout Spacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                    <Frame BackgroundColor="#90EE90" CornerRadius="10" Padding="10" WidthRequest="100" HeightRequest="50" HorizontalOptions="StartAndExpand">
+                        <Label x:Name="XGyroLabel" Text="X=0" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+
+                    <Frame BackgroundColor="#90EE90" CornerRadius="10" Padding="10" WidthRequest="100" HeightRequest="50" HorizontalOptions="CenterAndExpand">
+                        <Label x:Name="YGyroLabel" Text="Y=0" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+
+                    <Frame BackgroundColor="#90EE90" CornerRadius="10" Padding="10" WidthRequest="100" HeightRequest="50" HorizontalOptions="EndAndExpand">
+                        <Label x:Name="ZGyroLabel" Text="Z=0" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                </HorizontalStackLayout>
+                <Button
+                            Margin="20"
+                            x:Name="BTNF"
+                            Text="Parar Coleta de Dados"
+                            TextColor="Black"
+                            HorizontalOptions="Center"
+                            Clicked="BTNF_Clicked"
+                            BackgroundColor="#EF4444"/>
+                
+                <Frame BackgroundColor="White">
+                    <oxy:PlotView
+                       x:Name="GyroscopePlotView" 
+                       Model="{Binding _plotmodelG}"
+                       DefaultTrackerTemplate="{x:Null}"
+                       WidthRequest="300" 
+                       HeightRequest="300" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center" />    
+                </Frame>
+
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage Title="Magnetômetro" >
+        <ScrollView>
+            <VerticalStackLayout Margin="20">
+                <Button 
+                    x:Name="BTNM"
+                    Text="Coletar Informações"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    Clicked="BTNM_Clicked"
+                    BackgroundColor="#90EE90"/>
+                <Label Text="Magnetômetro:" FontSize="Medium" TextColor="White" Margin="20,10,0,10"/>
+
+                <HorizontalStackLayout Spacing="20"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand">
+                    <Frame BackgroundColor="#90EE90" CornerRadius="10" Padding="10" WidthRequest="100" HeightRequest="50" HorizontalOptions="StartAndExpand">
+                        <Label x:Name="XMagnetoLabel" Text="X=0" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+
+                    <Frame BackgroundColor="#90EE90" CornerRadius="10" Padding="10" WidthRequest="100" HeightRequest="50" HorizontalOptions="CenterAndExpand">
+                        <Label x:Name="YMagnetoLabel" Text="Y=0" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+
+                    <Frame BackgroundColor="#90EE90" CornerRadius="10" Padding="10" WidthRequest="100" HeightRequest="50" HorizontalOptions="EndAndExpand">
+                        <Label x:Name="ZMagnetoLabel" Text="Z=0" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                </HorizontalStackLayout>
+
+                <Button
+                        Margin="20"
+                        x:Name="BTNN"
+                        Text="Parar Coleta de Dados"
+                        TextColor="Black"
+                        HorizontalOptions="Center"
+                        Clicked="BTNN_Clicked"
+                        BackgroundColor="#EF4444"/>
+
+                <Frame BackgroundColor="white">
+                    <oxy:PlotView
+                       x:Name="MagnetometerPlotView" 
+                       Model="{Binding __plotmodelM}"
+                       BindingContext="black"
+                       DefaultTrackerTemplate="{x:Null}"
+                       WidthRequest="300" 
+                       HeightRequest="300" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center" />
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage>
+
+</TabbedPage>
